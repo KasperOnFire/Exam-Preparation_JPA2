@@ -1,12 +1,15 @@
-package kasper.exam.preparation_jpa2.entity;
+package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -17,6 +20,17 @@ public class Book implements Serializable {
     private String title;
     private String author;
     private double price;
+
+    public Book(Long id, String isbn, String title, String author, double price) {
+        this.id = id;
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    public Book() {
+    }
 
     public Long getId() {
         return id;

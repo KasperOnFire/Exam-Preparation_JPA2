@@ -1,16 +1,21 @@
-package kasper.exam.preparation_jpa2.entity;
+package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class PaperBook extends Book implements Serializable {
 
     private double shippingWeight;
     private int inStock;
+
+    public PaperBook() {
+    }
+
+    public PaperBook(double shippingWeight, int inStock) {
+        this.shippingWeight = shippingWeight;
+        this.inStock = inStock;
+    }
 
     public double getShippingWeight() {
         return shippingWeight;

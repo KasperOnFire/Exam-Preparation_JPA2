@@ -1,16 +1,21 @@
-package kasper.exam.preparation_jpa2.entity;
+package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class EBook extends Book implements Serializable {
 
     private String downloadUrl;
     private double sizeMB;
+
+    public EBook() {
+    }
+
+    public EBook(String downloadUrl, double sizeMB) {
+        this.downloadUrl = downloadUrl;
+        this.sizeMB = sizeMB;
+    }
 
     public String getDownloadUrl() {
         return downloadUrl;
